@@ -1,27 +1,18 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-   "http://www.w3.org/TR/html4/strict.dtd">
-<HTML>
-  <HEAD>
-    <TITLE>Un documento con una hoja de estilo externa</TITLE>
-    <LINK href="css/estilo.css" rel="stylesheet" type="text/css">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  </HEAD>
-  <BODY>
 
   <?php
-  if ($_POST["entrando"]=="s"){
+  include("cabecera.php");
+    include("menu.php");
+  if (isset($_POST["entrando"]) AND $_POST["entrando"]=="s"){
     $db = new mysqli('localhost', 'horarios_escolares', 'horarios_escolares', 'horarios_escolares');
-
-if ($db->connect_error) {
-        die('Connect Error (' . $db->connect_errno . ') '
-            . $mysqli->connect_error);
-} elseif{
- // $sentencia="INSERT INTO courses ('name', 'description', 'date_start', 'date_end', 'active') VALUES ('".$_POST["name"]."', '".$_POST["description"]."', '".$_POST["date_start"]."', '".$_POST["date_end"]."', '".$_POST["active"]."') ";
+    if ($db->connect_error) {die('Connect Error (' . $db->connect_errno . ') '. $mysqli->connect_error);} 
+  else {
+  $sentencia="INSERT INTO courses (name, description, date_start, date_end, active) VALUES ('".$_POST["name"]."', '".$_POST["description"]."', '".$_POST["date_start"]."', '".$_POST["date_end"]."', '".$_POST["active"]."') ";
   //echo $sentencia;
- // $result = $db->query($sentencia);
-  }}
+  $result = $db->query($sentencia);
+  echo "Se ha registrado el curso ".$_POST["name"];
+  exit;
+  };
+  };
   ?>
 
 <!------ Include the above in your HEAD tag ---------->
