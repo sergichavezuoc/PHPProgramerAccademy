@@ -1,7 +1,6 @@
 <?php
-print_r($_POST);
-echo "usuario: ".$_POST["login"]."<br />";
-echo "password: ".$_POST["password"]."<br />";
+echo "<h1>Horarios escolares</h1>";
+echo "<p><a href=\"nuevo_curso.php\">Añadir curso</a> | <a href=\"nuevo_asignatura.php\">Añadir asignatura</a></p>";
 $validado=false;
 $db = new mysqli('localhost', 'horarios_escolares', 'horarios_escolares', 'horarios_escolares');
 
@@ -12,7 +11,7 @@ if ($db->connect_error) {
         $row = $result->fetch_all(MYSQLI_ASSOC);
         if ($db->affected_rows==1)
         {
-            print_r($row);
+           
             echo "Password: ".$row[0]["password"];
             if ($row[0]["password"]==$_POST["password"]){$validado =true;}
             else{echo "Lo sentimos, contraseña incorrecta.";exit;}
