@@ -2,31 +2,22 @@
 include("cabecera.php");
 ?>
 
-
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="img/logo.jpg" id="icon" alt="User Icon" />
-    </div>
-
-    <!-- Login Form -->
-    <form name="login" action="validar.php" method="post">
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
-
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
+<div class="caja">
+  <form id="login" action="validar.php" method="post">
+  <div class="header">
+    <h2>Acceder al sistema</h2>
+  </div>
+  <div class="sep"></div>
+  <div class="inputs">
+<input placeholder="Identificador" id="login" name="login" type="text"  value="" required />
+<input placeholder="Contraseña" type="text" id="password" name="password"  value=""  required />
+Usuario: <input checked="checked" type=radio name="tipo" value="usuario" /> Administrador <input type=radio name="tipo" value="administrador" />
+<button type="submit" id="submit">Validar</button>
+</div>
+<div id="formFooter">
       <a class="underlineHover" href="#">Solicitar alta</a>
     </div>
-
-  </div>
+</form>
 </div>
 <body>
     </html>

@@ -1,6 +1,6 @@
-
-  <?php
+ <?php
   include("cabecera.php");
+  include("nivel.php");
     include("menu.php");
   if (isset($_POST["entrando"]) AND $_POST["entrando"]=="s"){
     $db = new mysqli('localhost', 'horarios_escolares', 'horarios_escolares', 'horarios_escolares');
